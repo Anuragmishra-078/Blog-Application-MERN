@@ -80,7 +80,7 @@ export const getAllBlogs = async (_, res) => {
 
 export const getPublishedBlog = async (_,res) => {
     try {
-        const blogs = await Blog.find({isPublished:true}).sort({ createdAt: -1 }).populate({path:"author", select:"firstName lastName photoUrl"}).populate({
+        const blogs = await Blog.find({}).sort({ createdAt: -1 }).populate({path:"author", select:"firstName lastName photoUrl"}).populate({
             path: 'comments',
             sort: { createdAt: -1 },
             populate: {
